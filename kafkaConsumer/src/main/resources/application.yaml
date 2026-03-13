@@ -1,0 +1,21 @@
+server:
+  port:
+    9000
+spring:
+  kafka:
+    bootstrap-servers:
+      - localhost:19092
+      - localhost:29092
+      - localhost:39092
+    consumer:
+      group-id: test-group
+      auto-offset-reset: latest
+      enable-auto-commit: false
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      max-poll-records: 10
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+    listener:
+      ack-mode: manual
